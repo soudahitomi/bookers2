@@ -1,3 +1,14 @@
+<% @books.each do |book| %>
+<h1>Book detaile</h1>
+<div>
+  <%= image_tag book.get_image %>
+  <!--アイコンまだだよ<%= image_tag '' %>-->
+  <%= book.title %>
+  <%= book.body %>
+  <%= book.user.name %>
+</div>
+
+
 <h1>New book</h1>
 <%= form_with model: @book do |f| %>
   <h4>title</h4>
