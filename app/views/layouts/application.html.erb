@@ -14,6 +14,9 @@
     <header>
     <% if user_signed_in? %>
       <li>
+        <%= link_to "Bookes", root_path %>
+      </li>
+      <li>
         <%= link_to "Home", user_path(current_user.id) %>
       </li>
       <li>
@@ -41,6 +44,10 @@
 
     <% end %>
     </header>
+
+    <main>
+
+    </main>
     <footer>
       <p>CopyRight Infratop.inc</p>
     </footer>
