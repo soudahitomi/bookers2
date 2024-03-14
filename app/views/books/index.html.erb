@@ -1,13 +1,9 @@
 <h1>Book detaile</h1>
 
 <% @books.each do |book| %>
-  <div>
-    <%= image_tag book.get_image %>
-    <!--アイコンまだだよ<%= image_tag '' %>-->
-    <%= book.title %>
-    <%= book.body %>
-    <%= book.user.name %>
-  </div>
+  <tr>
+    <td><%= book.tiitle%></td>
+  </tr>
 <% end %>
 
 
