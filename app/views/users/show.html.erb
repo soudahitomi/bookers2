@@ -1,9 +1,9 @@
 <h1>User info</h1>
 <%= image_tag @user.get_profile_image(50,50) %>
-<% @users.each do |user| %>
-  <p><%= user.name %></p>
-  <p><%= user.introduction %></p>
-<% end %>
+
+<%= @user.name %>
+<%= @user.introduction %>
+
 <%= link_to "edit", edit_user_path %>
 
 <h1>New book</h1>
