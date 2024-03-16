@@ -14,7 +14,7 @@
     <header>
     <% if user_signed_in? %>
       <li>
-        <%= link_to "Bookes", root_path %>
+        <%= link_to "Bookers", root_path %>
       </li>
       <li>
         <%= link_to "Home", user_path(current_user.id) %>
@@ -29,6 +29,9 @@
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
+      <li>
+        <%= link_to "Bookers", root_path %>
+      </li>
       <li>
         <%= link_to "Home", root_path %>
       </li>
