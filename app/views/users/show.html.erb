@@ -16,3 +16,7 @@
 <% end %>
 
 <h1>Books</h1>
+<% @books.each do |book| %>
+ <%= book.title%>
+ <%= book.body%>
+<% end %>
