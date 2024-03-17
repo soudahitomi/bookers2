@@ -1,1 +1,15 @@
-<h1>Book detail</h1>
+<table>
+  <thead>
+    <h3>Book detail</h3>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= image_tag @user.get_profile_image(100,100) %></td>
+      <td><%= @books.title %></td>
+      <td><%= @books.body %></td>
+      <td><%= link_to "edit", edit_book_path(@books.id)%></td>
+      <td><%= %></td>
+    </tr>
+  </tbody>
+</table>
