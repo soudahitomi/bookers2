@@ -1,17 +1,13 @@
-<table>
-  <thead>
-    <h3>Book detail</h3>
-  </thead>
 
-  <tbody>
-    <tr>
-      <td><%= image_tag @user.get_profile_image(100,100) %></td>
-      <td><%= @books.title %></td>
-      <td><%= @books.body %></td>
-      <td><%= link_to "edit", edit_book_path(@books.id)%></td>
-      <% if @books.user == current_user %>
-        <td><%= link_to "destroy", book_path(@books), method: :delete %></td>
+
+    <h3>Book detail</h3>
+
+      <%= link_to book_path(@user.id) do %>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <%= @books.title %>
       <% end %>
-    </tr>
-  </tbody>
-</table>
+      <%= @books.body %>
+      <%= link_to "edit", edit_book_path(@books.id)%>
+      <% if @books.user == current_user %>
+        <%= link_to "destroy", book_path(@books), method: :delete %>
+      <% end %>
