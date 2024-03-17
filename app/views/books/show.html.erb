@@ -1,14 +1,15 @@
+<h3>Book detail</h3>
 
+  <%= link_to book_path(@user.id) do %>
+   <%= image_tag @user.get_profile_image(100,100) %>
+   <%= @user.name %>
+   <%= @books.title %>
+  <% end %>
 
-    <h3>Book detail</h3>
+   <%= @books.body %>
 
-      <%= link_to book_path(@user.id) do %>
-      <%= image_tag @user.get_profile_image(100,100) %>
-      <%= @user.name %>
-      <%= @books.title %>
-      <% end %>
-      <%= @books.body %>
-      <%= link_to "edit", edit_book_path(@books.id)%>
-      <% if @books.user == current_user %>
-        <%= link_to "destroy", book_path(@books), method: :delete %>
-      <% end %>
+  <%= link_to "edit", edit_book_path(@books.id)%>
+
+  <% if @books.user == current_user %>
+  <%= link_to "destroy", book_path(@books), method: :delete %>
+  <% end %>

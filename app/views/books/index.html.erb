@@ -1,13 +1,15 @@
 <h1>Books</h1>
+
 <h3>Title</h3>
+
 <h3>Opinion</h3>
+
 <% @books.each do |book| %>
     <%= link_to book_path(book.id) do %>
      <%= image_tag book.user.get_profile_image(100,100) %>
      <%= book.title%>
     <% end %>
      <%= book.body%>
-
 <% end %>
 
 
