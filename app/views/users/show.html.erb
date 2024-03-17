@@ -18,7 +18,7 @@
 
 <h1>Books</h1>
 <% @books.each do |book| %>
-    <%= link_to book_path do %>
+    <%= link_to book_path(book.id) do %>
      <%= image_tag @user.get_profile_image(100,100) %>
      <%= book.title%>
     <% end %>
