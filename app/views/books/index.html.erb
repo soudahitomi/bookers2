@@ -1,9 +1,11 @@
-<h1>Book</h1>
-
+<h1>Books</h1>
 <% @books.each do |book| %>
-  <tr>
-    <td><%= book.title%></td>
-  </tr>
+    <%= link_to book_path(book.id) do %>
+     <%= image_tag book.user.get_profile_image(100,100) %>
+     <%= book.title%>
+    <% end %>
+     <%= book.body%>
+
 <% end %>
 
 
