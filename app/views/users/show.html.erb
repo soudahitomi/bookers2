@@ -6,6 +6,7 @@
 
 <%= link_to "edit", edit_user_path %>
 
+
 <h1>New book</h1>
 <%= form_with model: @book do |f| %>
   <h4>title</h4>
@@ -17,6 +18,10 @@
 
 <h1>Books</h1>
 <% @books.each do |book| %>
- <%= book.title%>
- <%= book.body%>
+    <%= link_to book_path do %>
+     <%= image_tag @user.get_profile_image(100,100) %>
+     <%= book.title%>
+    <% end %>
+     <%= book.body%>
+
 <% end %>
