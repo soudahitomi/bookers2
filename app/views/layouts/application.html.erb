@@ -12,62 +12,86 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navber navber-expand-lg navber-bark bg-dark" >
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
         <div class="container">
-          <div class="row">
-            <ul class="navber-nav ml-auto">
 
-            <% if user_signed_in? %>
-            <li class="nav-item" >
-              <%= link_to "Bookers", root_path %>
+          <ul class="navbar-nav mr-auto">
+
+           <a class="navbar-brand link-light" herf="/">
+             <span>Bookers</span>
+           </a>
+
+           <% if user_signed_in? %>
+
+
+            <li class="nav-item " >
+              <%= link_to user_path(current_user.id), class: "nav-item text-light" do %>
+                <i class="fa-solid fa-house"></i>
+                Home
+              <% end %>
             </li>
 
-            <li class="nav-item" >
-              <%= link_to "Home", user_path(current_user.id) %>
+            <li class="nav-item " >
+              <%= link_to users_path, class: "nav-item text-light" do %>
+                 Users
+              <% end %>
             </li>
 
-            <li class="nav-item" >
-              <%= link_to "Users", users_path %>
+            <li class="nav-item " >
+              <%= link_to books_path, class: "nav-item text-light" do %>
+                 Books
+              <% end %>
             </li>
 
-            <li class="nav-item" >
-              <%= link_to "Books", books_path %>
-            </li>
-
-            <li class="nav-item" >
-              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            <li class="nav-item " >
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-item text-light" do %>
+                 Log out
+              <% end %>
             </li>
 
             <% else %>
-            <li class="nav-item" >
-              <%= link_to "Bookers", root_path %>
+
+            <li class="nav-item"  >
+              <%= link_to root_path, class: "nav-item text-light" do %>
+               Home
+              <% end %>
             </li>
-            <li class="nav-item" >
-              <%= link_to "Home", root_path %>
+            <li class="nav-item ">
+              <%= link_to homes_about_path, class: "nav-item text-light" do %>
+               About
+              <% end %>
             </li>
-            <li>
-              <%= link_to "About", homes_about_path %>
-            </li class="nav-item" >
-            <li class="nav-item" >
-              <%= link_to "Sign up", new_user_registration_path %>
+            <li class="nav-item " >
+              <%= link_to new_user_registration_path, class: "nav-item text-light" do %>
+                Sign up
+              <% end %>
             </li>
-            <li class="nav-item" >
-              <%= link_to "Log in", new_user_session_path %>
+            <li class="nav-item " >
+              <%= link_to new_user_session_path, class: "nav-item text-light" do %>
+                Log in
+              <% end %>
             </li>
 
             <% end %>
            </ul>
-          </div><!--rowの終了タグ-->
-        </div><!--containerの終了タグ-->
+         </div><!--containerの終了タグ-->
       </nav>
     </header>
 
     <main>
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </main>
     <footer>
-      <p>CopyRight Infratop.inc</p>
+      <div class="container">
+        <div class="row">
+          <div class="mx-auto m-10">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div><!--rowの終了タグ-->
+      </div><!--containerの終了タグ-->
     </footer>
 
   </body>
