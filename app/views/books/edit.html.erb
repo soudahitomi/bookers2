@@ -1,6 +1,15 @@
+<div class= "container" >
+  <div class= "row">
+    <div class="col-md-3"><!--col-md-3の開始タグ-->
+
+<%= render partial: 'users/list', locals: { user: @user, book: @book, } %>
+
+    </div><!--col-md-3の閉じタグ-->
+
+    <div class="col-md-8 offset-md-1">
 <h1>Editing Book</h1>
 
-<%= form_with model: @book do |f| %>
+<%= form_with model: @books do |f| %>
 
   <p>Title</p>
   <%= f.text_field :title %>
@@ -13,3 +22,6 @@
 
 <span><%= link_to "show", book_path %></span>
 <span><%= link_to "Back", books_path %></span>
+</div><!--col-md-8 offsetの閉じタグ-->
+  </div><!--rowの閉じタグ-->
+</div><!--contanerの閉じタグ-->

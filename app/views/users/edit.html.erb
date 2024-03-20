@@ -1,3 +1,12 @@
+<div class= "container" >
+  <div class= "row">
+    <div class="col-md-3"><!--col-md-3の開始タグ-->
+
+<%= render partial: 'list', locals: { user: @user, book: @book, } %>
+
+    </div><!--col-md-3の閉じタグ-->
+
+    <div class="col-md-8 offset-md-1">
 <h1>user info</h1>
 
 <%= form_with model: @user do |f| %>
@@ -13,3 +22,6 @@
 
   <%= f.submit "Update User" %>
 <% end %>
+</div><!--col-md-8 offsetの閉じタグ-->
+  </div><!--rowの閉じタグ-->
+</div><!--contanerの閉じタグ-->

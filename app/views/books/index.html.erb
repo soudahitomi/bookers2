@@ -1,23 +1,35 @@
-<h1>Books</h1>
+<div class= "container" >
+  <div class= "row">
+    <div class="col-md-3"><!--col-md-3の開始タグ-->
 
-<h3>Title</h3>
+<%= render partial: 'users/list', locals: { user: @user, book: @book, } %>
 
-<h3>Opinion</h3>
+    </div><!--col-md-3の閉じタグ-->
 
-<% @books.each do |book| %>
-    <%= link_to book_path(book.id) do %>
-     <%= image_tag book.user.get_profile_image(100,100) %>
-     <%= book.title%>
-    <% end %>
-     <%= book.body%>
-<% end %>
+    <div class="col-md-8 offset-md-1">
+      <h1>Books</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @books.each do |book| %>
+          <tr>
+           <td><%= link_to book_path(book.id) do %></td>
+           <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+           <td><%= book.title%></td>
+               <% end %>
+           <td><%= book.body%></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div><!--col-md-8 offsetの閉じタグ-->
+  </div><!--rowの閉じタグ-->
+</div><!--contanerの閉じタグ-->
 
 
-<h1>New book</h1>
-<%= form_with model: @book do |f| %>
-  <h4>title</h4>
-  <%= f.text_field :title %>
-  <h4>opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'create Book' %>
-<% end %>
