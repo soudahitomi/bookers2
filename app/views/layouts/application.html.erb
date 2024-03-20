@@ -13,17 +13,15 @@
 
   <body>
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" ><!--ここのレイアウトが反映されなくて難しかった。白にならなかったのはリンクだから？-->
         <div class="container">
-
-          <ul class="navbar-nav mr-auto">
 
            <a class="navbar-brand link-light" herf="/">
              <span>Bookers</span>
            </a>
 
            <% if user_signed_in? %>
-
+           <ul class="navbar-nav ml-auto ">
 
             <li class="nav-item " >
               <%= link_to user_path(current_user.id), class: "nav-item text-light" do %>
@@ -34,18 +32,21 @@
 
             <li class="nav-item " >
               <%= link_to users_path, class: "nav-item text-light" do %>
+                <i class="fa-solid fa-users"></i>
                  Users
               <% end %>
             </li>
 
             <li class="nav-item " >
               <%= link_to books_path, class: "nav-item text-light" do %>
+                <i class="fa-solid fa-book-open"></i>
                  Books
               <% end %>
             </li>
 
             <li class="nav-item " >
               <%= link_to destroy_user_session_path, method: :delete, class: "nav-item text-light" do %>
+                <i class="fa-solid fa-right-from-bracket"></i>
                  Log out
               <% end %>
             </li>
@@ -54,21 +55,25 @@
 
             <li class="nav-item"  >
               <%= link_to root_path, class: "nav-item text-light" do %>
+               <i class="fa-solid fa-house"></i>
                Home
               <% end %>
             </li>
             <li class="nav-item ">
               <%= link_to homes_about_path, class: "nav-item text-light" do %>
+               <i class="fa-solid fa-link"></i>
                About
               <% end %>
             </li>
             <li class="nav-item " >
               <%= link_to new_user_registration_path, class: "nav-item text-light" do %>
+                <i class="fa-solid fa-user-plus"></i>
                 Sign up
               <% end %>
             </li>
             <li class="nav-item " >
               <%= link_to new_user_session_path, class: "nav-item text-light" do %>
+              <i class="fa-solid fa-right-to-bracket"></i>
                 Log in
               <% end %>
             </li>

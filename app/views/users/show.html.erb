@@ -1,42 +1,61 @@
 <div class= "container" >
-    <div class= "row">
-        <div class="col-md-3"><!--col-md-3の開始タグ-->
-<h1>User info</h1>
+  <div class= "row">
+    <div class="col-md-3"><!--col-md-3の開始タグ-->
 
-<%= image_tag @user.get_profile_image(100,100) %>
-<%= @user.name %>
-<%= @user.introduction %>
-<% if @user == current_user %>
-<%= link_to "edit", edit_user_path(@user.id) %>
-<% end %>
+      <h1>User info</h1>
 
-<h1>New book</h1>
-<%= form_with model: @book do |f| %>
+        <%= image_tag @user.get_profile_image(100,100) %>
+        <%= @user.name %>
+        <%= @user.introduction %>
+        <% if @user == current_user %>
+          <div>
+            <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-lg btn-block" do %>
+                <i class="fa-solid fa-user-gear"></i>
+            <% end %>
+          </div>
+        <% end %>
 
-  <h4>title</h4>
-  <%= f.text_field :title %>
+      <h1>New book</h1>
+        <%= form_with model: @book do |f| %>
 
-  <h4>opinion</h4>
-  <%= f.text_area :body %>
+        <h4>title</h4>
+        <%= f.text_field :title %>
 
-  <%= f.submit 'create Book' %>
-<% end %>
-</div><!--col-md-3の閉じタグ-->
+        <h4>opinion</h4>
+        <%= f.text_area :body %>
 
-<div class="col-md-8 offset-md-1">
-<h1>Books</h1>
+        <%= f.submit class: "btn btn-success" do %>
+          create Book
+        <% end %>
+        <% end %>
+    </div><!--col-md-3の閉じタグ-->
 
-  <p>Title</p>
+    <div class="col-md-8 offset-md-1">
+  <h1>Books</h1>
 
-  <p>Opinion</p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
 
-<% @books.each do |book| %>
-    <%= link_to book_path(book.id) do %>
-     <%= image_tag @user.get_profile_image(100,100) %>
-     <%= book.title%>
-    <% end %>
-     <%= book.body%>
-<% end %>
-</div><!--col-md-8 offsetの閉じタグ-->
-    </div><!--rowの閉じタグ-->
+        <tbody>
+        <% @books.each do |book| %>
+
+          <tr>
+            <td><%= link_to book_path(book.id) do %></td>
+            <td><%= image_tag @user.get_profile_image(100,100) %></td>
+            <td><%= book.title%></td>
+                <% end %><!--link_toの閉じタグ-->
+
+            <td><%= book.body%></td>
+          </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+    </div><!--col-md-8 offsetの閉じタグ-->
+  </div><!--rowの閉じタグ-->
 </div><!--contanerの閉じタグ-->
