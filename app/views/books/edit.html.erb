@@ -1,7 +1,8 @@
+<%= render 'layouts/errors', book: @book %>
 
 <h1>Editing Book</h1>
 
-<%= form_with model: @books do |f| %>
+<%= form_with model: @book do |f| %>
 
   <p>Title</p>
   <%= f.text_field :title %>
