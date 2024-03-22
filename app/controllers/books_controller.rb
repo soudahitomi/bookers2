@@ -30,7 +30,7 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
-    # @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -56,9 +56,9 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
 
-  def is_matching_login_user?# メソッド名はコントローラごとに変える
+  def is_matching_login_user?# メソッド名はコントローラごとに変える。
     book = Book.find(params[:id])
-    unless book.id == current_user.id
+    unless book.user_id  == current_user.id#ここのbook.user_idが最後まで分からなかったです
       redirect_to books_path
     end
   end

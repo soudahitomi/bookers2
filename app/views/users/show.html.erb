@@ -23,7 +23,7 @@
             <tr>
               <td>
                 <%= link_to user_path(book.id) do %>
-                <%= image_tag @user.get_profile_image(100,100) %><!--ここの変数の@userがブロック変数のbookになると思いました。ユーザーの情報を渡すためなのはわかっていますが、なぜこうなるのかの説明ができません-->
+                <%= image_tag @user.get_profile_image(100,100) %><!--ここの変数の@userがブロック変数のbookになると思いました。ユーザーの情報を渡すためなのはわかっていますが、なぜこうなるのか説明ができません-->
                 <% end %><!--link_toの閉じタグ-->
               </td>
 
