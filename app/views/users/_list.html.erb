@@ -1,15 +1,24 @@
 <h1>User info</h1>
+  <%= image_tag user.get_profile_image(100,100) %>
 
-        <%= image_tag user.get_profile_image(100,100) %>
-        <%= user.name %>
-        <%= user.introduction %>
-        <% if user == current_user %>
-          <div>
-            <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-lg btn-block" do %>
-                <i class="fa-solid fa-user-gear"></i>
-            <% end %>
-          </div>
-        <% end %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-lg btn-block" do %>
+       <i class="fa-solid fa-user-gear"></i>
+    <% end %>
+  </div>
 
       <h1>New book</h1>
         <%= form_with model: book do |f| %>
@@ -21,6 +30,6 @@
         <%= f.text_area :body %>
 
         <%= f.submit class: "btn btn-success" do %>
-          create Book
+          Create Book
         <% end %>
         <% end %><!--form_withの閉じタグ-->
