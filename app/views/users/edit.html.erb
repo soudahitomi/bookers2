@@ -6,6 +6,9 @@
     <% end %>
     </ul>
 <% end %>
+
+  <div class="row">
+    <div class="mx-auto">
 <h1>user info</h1>
 
 <%= form_with model: @user do |f| %>
@@ -19,5 +22,10 @@
   <p>Introduction</p>
   <%= f.text_area :introduction %>
 
-  <%= f.submit "Update User" %>
+ <div>
+  <%= f.submit 'Update User' %>
+ </div>
+
 <% end %>
+</div>
+</div>
