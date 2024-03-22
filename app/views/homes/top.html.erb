@@ -1,24 +1,25 @@
-<h1>welcome to
+<div class="row">
+    <div class="mx-auto">
+        <h1>welcome to
 
-<strong><i class="fa-solid fa-book"></i>Bookers</strong> !!</h1>
+        <strong><i class="fa-solid fa-book"></i>Bookers</strong> !!</h1>
 
-<p>In <i class="fa-solid fa-book"></i>Bookers,</p>
+        <p>In <i class="fa-solid fa-book"></i>Bookers,</p>
 
-<p>you can share and exchange your opinions , inpressions , and emotions<br>
+        <p>you can share and exchange your opinions , inpressions , and emotions<br>
 
-about various books!
+        about various books!</p>
 
-</p>
+        <button type="button" class="btn btn-primary btn-lg btn-block">
+            <%= link_to new_user_session_path, class: "text-light" do %>
+              Log in
+        <% end %>
+        </button>
 
-
-<button type="button" class="btn btn-primary btn-lg btn-block">
-    <%= link_to new_user_session_path, class: "text-light" do %>
-        Log in
-    <% end %>
-</button>
-
-<button type="button" class="btn btn-success btn-lg btn-block">
-    <%= link_to new_user_registration_path, class: "text-light" do %>
-        Sign up
-    <% end %>
-</button>
+        <button type="button" class="btn btn-success btn-lg btn-block">
+            <%= link_to new_user_registration_path, class: "text-light" do %>
+              Sign up
+        <% end %>
+        </button>
+    </div><!--mx-autoの閉じタグ-->
+</div><!--rowの閉じタグ-->

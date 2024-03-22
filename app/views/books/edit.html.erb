@@ -7,18 +7,26 @@
     </ul>
 <% end %>
 
-<h1>Editing Book</h1>
+<div class="row">
+  <div class="mx-auto">
 
-<%= form_with model: @book do |f| %>
+    <h1>Editing Book</h1>
 
-  <p>Title</p>
-  <%= f.text_field :title %>
+    <%= form_with model: @book do |f| %>
 
-  <P>Opinion</P>
-  <%= f.text_area :body %>
+      <p>Title</p>
+      <%= f.text_field :title %>
 
-  <%= f.submit 'Update Book' %>
-<% end %>
+      <P>Opinion</P>
+      <%= f.text_area :body %>
 
-<span><%= link_to "show", book_path %></span>
-<span><%= link_to "Back", books_path %></span>
+      <%= f.submit class: "btn btn-success" do %>
+    　   Update Book
+      <% end %>
+    <% end %>
+
+    <span><%= link_to "show", book_path(@user.id) %></span>
+    <span> | </span>
+    <span><%= link_to "Back", books_path %></span>
+</div><!--mx-autoの閉じタグ-->
+</div><!--rowの閉じタグ-->

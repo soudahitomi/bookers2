@@ -7,21 +7,45 @@
     </div><!--col-md-3の閉じタグ-->
 
     <div class="col-md-8 offset-md-1">
-      <h3>Book detail</h3>
+      <h1>Book detail</h1>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td><%= link_to user_path(@users.id) do %>
+                <%= image_tag @users.get_profile_image(100,100) %>
+                <div><%= @users.name %></div>
+                <% end %>
+              </td>
 
-        <%= link_to book_path(@users.id) do %>
-        <%= image_tag @users.get_profile_image(100,100) %>
-        <%= @users.name %>
-        <%= @books.title %>
-        <% end %>
+              <td>
+                <%= link_to book_path(@users.id) do %>
+                <%= @books.title %>
+                <% end %>
+              </td>
 
-        <%= @books.body %>
+              <td>
+                <%= @books.body %>
+              </td>
 
-        <%= link_to "edit", edit_book_path(@books.id)%>
+              <td>
+                <% if @books.user == current_user %>
+                  <%= link_to edit_book_path(@books.id), class: "btn btn-success" do %>
+                    Edit
+                  <% end %>
+                <% end %>
+              </td>
 
-        <% if @books.user == current_user %>
-        <%= link_to "destroy", book_path(@books), method: :delete %>
-        <% end %>
+              <td>
+                <% if @books.user == current_user %>
+                  <%= link_to book_path(@books), method: :delete, class: "btn btn-danger" do %>
+                    Destroy
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
     </div><!--col-md-8 offsetの閉じタグ-->
   </div><!--rowの閉じタグ-->
 </div><!--contanerの閉じタグ-->
