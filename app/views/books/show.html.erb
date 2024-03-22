@@ -19,7 +19,7 @@
 
               <td>
                 <%= link_to book_path(@books.user.id) do %>
-                <%= @book.title %>
+                <%= @books.title %>
                 <% end %>
               </td>
 
@@ -29,7 +29,7 @@
 
               <td>
                 <% if @books.user == current_user %>
-                  <%= link_to edit_book_path(@books.id), class: "btn btn-success" do %>
+                  <%= link_to edit_book_path(@books.user.id), class: "btn btn-success" do %><!--ここの@books.user.idがなかなかわからなかった-->
                     Edit
                   <% end %>
                 <% end %>
