@@ -2,7 +2,7 @@
   <div class= "row">
     <div class="col-md-3"><!--col-md-3の開始タグ-->
 
-<%= render partial: 'users/list', locals: { user: @user, book: @book } %>
+<%= render partial: 'users/list', locals: { user: @books.user, book: @book } %>
 
     </div><!--col-md-3の閉じタグ-->
 
@@ -19,7 +19,7 @@
 
               <td>
                 <%= link_to book_path(@books.user.id) do %>
-                <%= @books.title %>
+                <%= @book.title %>
                 <% end %>
               </td>
 
