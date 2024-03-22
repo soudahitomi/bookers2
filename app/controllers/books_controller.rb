@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-before_action :is_matching_login_user, only: [:edit, :update, :destroy, ]
 
   def index
     @book = Book.new
@@ -21,7 +20,7 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy, ]
   end
 
   def show
-    @users = User.find(params[:id])
+    # @users = User.find(params[:id])アソシエーションしているのでviewでは、@books.user.nameとかで使える
     @books = Book.find(params[:id])
     @user = current_user
     @book = Book.new
@@ -29,7 +28,7 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy, ]
 
   def edit
     @book = Book.find(params[:id])
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def update
@@ -55,10 +54,5 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy, ]
     params.require(:book).permit(:title, :body)
   end
 
-  def is_matching_login_user
-    user = User.find(params[:id])
-    unless user.id == current_user.id
-      redirect_to book_path
-    end
-  end
+
 end

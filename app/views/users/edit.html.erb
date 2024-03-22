@@ -7,27 +7,29 @@
     </ul>
 <% end %>
 
-<div class="row">
-  <div class="mx-auto">
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
 
-    <h1>user info</h1>
+      <h1>user info</h1>
 
-    <%= form_with model: @user do |f| %>
+      <%= form_with model: @user do |f| %>
 
-    <p>Name</p>
-    <%= f.text_field :name %>
+      <p>Name</p>
+      <%= f.text_field :name %>
 
-    <p>Image</p>
-    <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+      <p>Image</p>
+      <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
 
-    <p>Introduction</p>
-    <%= f.text_area :introduction %>
+      <p>Introduction</p>
+      <%= f.text_area :introduction %>
 
-    <div>
-      <%= f.submit class: "btn btn-secondary" do %>
-        Update User
+      <div>
+        <%= f.submit class: "btn btn-secondary" do %>
+          Update User
+        <% end %>
+      </div>
       <% end %>
-    </div>
-    <% end %>
-  </div><!--mx-autoの閉じタグ-->
-</div><!--rowの閉じタグ-->
+    </div><!--mx-autoの閉じタグ-->
+  </div><!--rowの閉じタグ-->
+  </div><!--container閉じタグ-->

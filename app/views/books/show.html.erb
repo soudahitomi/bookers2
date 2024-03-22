@@ -11,14 +11,14 @@
         <table class="table table-striped">
           <tbody>
             <tr>
-              <td><%= link_to user_path(@users.id) do %>
-                <%= image_tag @users.get_profile_image(100,100) %>
-                <div><%= @users.name %></div>
+              <td><%= link_to user_path(@books.user.id) do %>
+                <%= image_tag @books.user.get_profile_image(100,100) %>
+                <div><%= @books.user.name %></div>
                 <% end %>
               </td>
 
               <td>
-                <%= link_to book_path(@users.id) do %>
+                <%= link_to book_path(@books.user.id) do %>
                 <%= @books.title %>
                 <% end %>
               </td>
